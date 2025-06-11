@@ -218,18 +218,43 @@ End of Phylogenetic Tree Construction Tutorial
 
 Core Metrics
 ```
-qiime diversity core-metrics-phylogenetic \--i-table ./dada2_table.qza \--i-phylogeny ./tree.qza \--m-metadata-file ./metadata.tsv \--p-sampling-depth 2000 \--output-dir ./core-metrics-results
+qiime diversity core-metrics-phylogenetic \--i-table table_nomitochloro.qza \--i-phylogeny tree_gg2.qza \--m-metadata-file metadata_q2_workshop.txt \--p-sampling-depth 1500 \--output-dir core_metrics
 ```
 
-Faith's Phylogenetic Diversity
+Observed Features
 ```
-qiime diversity alpha-group-significance \--i-alpha-diversity ./core-metrics-results/faith_pd_vector.qza \--m-metadata-file ./metadata.tsv \--o-visualization ./core-metrics-results/faiths_pd_statistics.qzv
+qiime diversity alpha-group-significance \--i-alpha-diversity core_metrics/observed_features_vector.qza \--m-metadata-file metadata_q2_workshop.txt \--o-visualization core_metrics/observed_features_statistics.qzv
+```
+
+Shannon Diversity
+```
+qiime diversity alpha-group-significance \--i-alpha-diversity core_metrics/shannon_vector.qza \--m-metadata-file metadata_q2_workshop.txt \--o-visualization core_metrics/shannon_statistics.qzv
 ```
 
 Pielou's Evenness
 ```
-qiime diversity alpha-group-significance \--i-alpha-diversity ./core-metrics-results/evenness_vector.qza \--m-metadata-file ./metadata.tsv \--o-visualization ./core-metrics-results/evenness_statistics.qzv
+qiime diversity alpha-group-significance \--i-alpha-diversity core_metrics/evenness_vector.qza \--m-metadata-file metadata_q2_workshop.txt \--o-visualization core_metrics/evenness_statistics.qzv
 ```
+
+Faith's Phylogenetic Diversity
+```
+qiime diversity alpha-group-significance \--i-alpha-diversity core_metrics/faith_pd_vector.qza \--m-metadata-file metadata_q2_workshop.txt \--o-visualization core_metrics/faith_pd_statistics.qzv
+```
+
+Filtering Data
+```
+qiime feature-table filter-samples \--i-table table_nomitochloro.qza \--m-metadata-file metadata_q2_workshop.txt \--p-where "[sample_type]='soil'" \--o-filtered-table table_nomitochloro_soil.qza
+
+  
+
+qiime diversity core-metrics-phylogenetic \--i-table table_nomitochloro_soil.qza \--i-phylogeny tree_gg2.qza \--m-metadata-file metadata_q2_workshop.txt \--p-sampling-depth 1500 \--output-dir core_metrics_soil
+```
+
+Re-run Observed Features Visualization
+```
+qiime diversity alpha-group-significance \--i-alpha-diversity core_metrics_soil/observed_features_vector.qza \--m-metadata-file metadata_q2_workshop.txt \--o-visualization core_metrics_soil/observed_features_statistics.qzv
+```
+
 
 End of alpha diversity metrics tutorial 
 

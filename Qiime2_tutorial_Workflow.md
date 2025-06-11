@@ -93,7 +93,7 @@ End of Denoising tutorial
 Start Interactive session
 1. Request interactive session with workshop reservation
 ```
-sinteractive --reservation=microbiome --ntasks=4 --time=04:00:00**
+sinteractive --reservation=microbiome --ntasks=4 --time=04:00:00
 ```
 
 2. Activate Qiime2
@@ -184,7 +184,7 @@ End of Quality Control Tutorial
 Alpha Rarefaction 
 - This will provide us with a plot of different diversity metrics and different rarefaction depths
 ```
-qiime diversity alpha-rarefaction \--i-table table_nomitochloro.qza \--m-metadata-file metadata_q2_workshop.txt \--p-max-depth 5500 \--o-visualization alpha_rarefaction_curves.qzv**
+qiime diversity alpha-rarefaction \--i-table table_nomitochloro.qza \--m-metadata-file metadata_q2_workshop.txt \--p-max-depth 5500 \--o-visualization alpha_rarefaction_curves.qzv
 ```
 
 
@@ -195,7 +195,7 @@ End of Rarefaction
 
 Get a reference tree!
 ```
-cp /pl/active/courses/2025_summer/CSU_2025/q2_workshop_final/QIIME2/2022.10.backbone.sepp-reference.qza .**
+cp /pl/active/courses/2025_summer/CSU_2025/q2_workshop_final/QIIME2/2022.10.backbone.sepp-reference.qza .
 ```
 - Reference tree available through Greengenes 2 website
 

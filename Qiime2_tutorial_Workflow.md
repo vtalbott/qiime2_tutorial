@@ -61,6 +61,7 @@ Review denoising statistics for run 3 using the qiime metadata tabulate command
 qiime metadata tabulate \--m-input-file dada2_stats_run3.qza \--o-visualization dada2_stats_run3.qzv
 ```
 
+
 Merge run 2 and run 3 denoising output tables and summarize
 ```
 qiime feature-table merge \--i-tables table_run2.qza \--i-tables table_run3.qza \--o-merged-table table.qza
@@ -537,6 +538,4 @@ cp /pl/active/courses/2025_summer/CSU_2025/q2_workshop_final/R/R.Rproj .
 ## End of Day 3
 
 
-```
-qiime metadata tabulate \--m-input-file dada2_stats_run3.qza \--o- visualization dada2_stats_run3.qzv
-```
+
